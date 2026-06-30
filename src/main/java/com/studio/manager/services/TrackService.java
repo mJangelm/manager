@@ -12,6 +12,7 @@ public interface TrackService {
 	int eliminar(Long codigo);
 	Track buscarUno(Long codigo);
 	List<Track> buscarTodas();
+	List<Track> buscarPorGenero(String genero);
 	
 
 }

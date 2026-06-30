@@ -90,6 +90,19 @@ public class TrackController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: No se encontró el track");
         }
     }
+    
+    @GetMapping("/genero/{genero}")
+    public ResponseEntity<?> buscarPorGenero(@PathVariable String genero) {
+        List<Track> resultado = trackService.buscarPorGenero(genero);
+        
+        if (!resultado.isEmpty()) {
+            return ResponseEntity.ok(resultado);
+        } else {
+            // Si no hay tracks de ese género, devolvemos un 204 (No Content) o una lista vacía con 200.
+            // En REST es muy común devolver 200 con la lista vacía [] para que el Front no rompa.
+            return ResponseEntity.ok(resultado); 
+        }
+    }
 
     
     

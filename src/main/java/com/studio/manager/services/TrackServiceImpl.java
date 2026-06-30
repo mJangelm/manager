@@ -74,6 +74,16 @@ public Track buscarUno(Long codigo) {
 	return trepo.findById(codigo).orElse(null);
 }
 
+@Override
+public List<Track> buscarPorGenero(String genero) {
+	try {
+        return trepo.findByGeneroIgnoreCase(genero);
+    } catch (Exception e) {
+        e.printStackTrace();
+        return List.of(); // Devolvemos una lista vacía en caso de error para evitar nulls
+    }
+}
+
 
 
 }

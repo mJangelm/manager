@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Tracks") // Debe coincidir con tu tabla de MySQL
+@Table(name = "Tracks") //  tabla de MySQL
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,11 +19,12 @@ public class Track {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_track") // Mapea el nombre exacto de tu columna
+    @Column(name = "id_track") // Mapeamos el nombre exacto de la columna
     private Long idTrack;
 
     private String title;
     
-    // Lo ponemos como String porque así lo definiste en el CREATE TABLE (aunque sea un número)
+    
     private String bpm; 
+    private String genero;
 }
